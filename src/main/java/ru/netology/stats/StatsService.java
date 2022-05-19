@@ -14,10 +14,7 @@ public class StatsService {
     public long mean(long[] means) {
 
         long check = means.length;
-        long sum1 = 0;
-        for (long mean : means) {
-            sum1 += mean;
-        }
+        long sum1 = sum(means);
         long numMean = sum1 / check;
         return numMean;
     }
@@ -52,12 +49,7 @@ public class StatsService {
 
     public long lowMean(long[] low) {
         int minMonthLow = 0;
-        long check = low.length;
-        long sum = 0;
-        for (long l : low) {
-            sum += l;
-        }
-        long numMean = sum / check;
+        long numMean = mean(low);
 
         for (long j : low) {
 
@@ -71,13 +63,7 @@ public class StatsService {
 
     public long highMean(long[] high) {
         int maxMonthHigh = 0;
-        long check = high.length;
-        long sum = 0;
-        for (long h : high) {
-            sum += h;
-        }
-        long numMean = sum / check;
-
+        long numMean = mean(high);
         for (long j : high) {
 
             if (numMean < j) {
